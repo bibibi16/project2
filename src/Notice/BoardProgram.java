@@ -1,3 +1,5 @@
+package Notice;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -36,6 +38,7 @@ public class BoardProgram {
                     System.out.println("알 수 없는 명령어입니다.");
             }
         }
+        scanner.close();
     }
 
     // 게시글 작성

@@ -1,3 +1,5 @@
+package Notice;
+
 class Post {
     private int id;
     private String title;
