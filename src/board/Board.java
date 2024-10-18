@@ -2,8 +2,6 @@ package board;
 
 import java.util.Scanner;
 
-import java.util.Scanner;
-
 public class Board {
 
     public static void main(String[] args) {
@@ -13,19 +11,34 @@ public class Board {
 
         // 명령을 처리하기 위한 반복문
         while (true) {
-            System.out.print("명령 > ");
+            System.out.print("명령어 > ");
             String cmd = scanner.nextLine();
 
+            if (cmd.equals("작성")) {
+                System.out.println("게시글을 작성합니다.");
+                System.out.print("제목 : ");
+                String title = scanner.nextLine();
 
-            if (cmd.equals("exit") || (cmd.equals("종료"))) {
+                System.out.print("내용 : ");
+                String content = scanner.nextLine();
+
+                int id = 1;
+                System.out.printf("%d번 게시물이 등록 되었습니다.\n", id);
+
+
+        }else if (cmd.equals("exit") || (cmd.equals("종료"))) {
                 System.out.println("프로그램을 종료합니다.");
-                break;  // 반복문 종료
-            } else {
-                // 다른 명령어 처리
-                System.out.println("명령어: " + cmd);
-            }
-        }
+                break;
 
+
+            } else {
+                System.out.println("명령어가 이상합니다.");
+
+
+            }
+
+
+        }
         scanner.close();
     }
 }
