@@ -26,11 +26,10 @@ public class Board {
                 int id = articleLastId + 1;
                 articleLastId = id; // 값 보존
 
-                Article article = new Article(); // 아티클 사용
-                article.id = id;
-                article.title = title;
-                article.content = content;
-
+                Article article = new Article(1, "제목", "내용"); // 아티클 사용
+                // article.id = id;
+                // article.title = title;
+                // article.content = content; 이렇게 해도 되지만 깔끔하게
 
                 System.out.printf("%d번 게시물이 등록 되었습니다.\n", id);
                 System.out.println("생성된 게시물 : " + article);
@@ -57,6 +56,13 @@ class Article { // 아티클 를래스 생성, 모든 클래스는 extends Objec
     int id;
     String title;
     String content;
+
+    Article(int id, String title, String content) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+    }
+
 
     @Override // Object 클래스 오버라이드
     public String toString() {
