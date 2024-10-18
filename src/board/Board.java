@@ -6,6 +6,7 @@ public class Board {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int articleLastId = 0;
 
         System.out.println("게시판 프로그램 시작");
 
@@ -22,7 +23,8 @@ public class Board {
                 System.out.print("내용 : ");
                 String content = scanner.nextLine();
 
-                int id = 1;
+                int id = articleLastId + 1;
+                articleLastId++;
                 System.out.printf("%d번 게시물이 등록 되었습니다.\n", id);
 
 
