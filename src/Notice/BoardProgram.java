@@ -53,17 +53,24 @@ public class BoardProgram {
 
     // 게시글 조회
     private static void viewPost() {
-        System.out.print("어떤 게시물을 조회할까요? ");
-        int postId = Integer.parseInt(scanner.nextLine());
+        try {
+            System.out.print("어떤 게시물을 조회할까요? ");
+            int postId = Integer.parseInt(scanner.nextLine());
 
-        for (Post post : posts) {
-            if (post.getId() == postId) {
-                post.display();
-                return;
+            for (Post post : posts) {
+                if (post.getId() == postId) {
+                    post.display();
+                    return;
+                }
             }
+            System.out.println(postId + "번 게시물은 존재하지 않습니다.\n");
+        } catch (NumberFormatException e) {
+            System.out.println("숫자를 입력해야 합니다. 조회하려는 게시물 번호를 확인해주세요.\n");
+        } catch (Exception e) {
+            System.out.println("게시글 조회 중 오류가 발생했습니다: " + e.getMessage());
         }
-        System.out.println(postId + "번 게시물은 존재하지 않습니다.\n");
     }
+
 
     // 게시글 삭제
     private static void deletePost() {
