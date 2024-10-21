@@ -74,37 +74,53 @@ public class BoardProgram {
 
     // 게시글 삭제
     private static void deletePost() {
-        System.out.print("어떤 게시물을 삭제할까요? ");
-        int postId = Integer.parseInt(scanner.nextLine());
-
-        for (Post post : posts) {
-            if (post.getId() == postId) {
-                posts.remove(post);
-                System.out.println(postId + "번 게시물이 삭제되었습니다.\n");
-                return;
-            }
+        if (posts.isEmpty()) {
+            System.out.println("삭제할 게시글이 없습니다.");
+            return;
         }
-        System.out.println(postId + "번 게시물은 존재하지 않습니다.\n");
+
+        try {
+            System.out.print("어떤 게시물을 삭제할까요? ");
+            int postNumber = Integer.parseInt(scanner.nextLine());
+
+            if (postNumber <= 0 || postNumber > posts.size()) {
+                System.out.println(postNumber + "번 게시글은 존재하지 않습니다.");
+            } else {
+                posts.remove(postNumber - 1);
+                System.out.println(postNumber + "번 게시물이 성공적으로 삭제되었습니다!");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("유효한 숫자를 입력해주세요.");
+        }
     }
 
     // 게시글 수정
     private static void updatePost() {
-        System.out.print("어떤 게시물을 수정할까요? ");
-        int postId = Integer.parseInt(scanner.nextLine());
+        if (posts.isEmpty()) {
+            System.out.println("수정할 게시글이 없습니다.");
+            return;
+        }
 
-        for (Post post : posts) {
-            if (post.getId() == postId) {
-                System.out.print("새로운 제목: ");
+        try {
+            System.out.print("어떤 게시물을 수정할까요? ");
+            int postNumber = Integer.parseInt(scanner.nextLine());
+
+            if (postNumber <= 0 || postNumber > posts.size()) {
+                System.out.println(postNumber + "번 게시글은 존재하지 않습니다.");
+            } else {
+                System.out.println(postNumber + "번 게시물을 수정합니다.");
+                System.out.print("제목: ");
                 String newTitle = scanner.nextLine();
-                System.out.print("새로운 내용: ");
+                System.out.print("내용: ");
                 String newContent = scanner.nextLine();
+                Post post = posts.get(postNumber - 1);
                 post.setTitle(newTitle);
                 post.setContent(newContent);
-                System.out.println(postId + "번 게시물이 수정되었습니다.\n");
-                return;
+                System.out.println(postNumber + "번 게시물이 성공적으로 수정되었습니다!");
             }
+        } catch (NumberFormatException e) {
+            System.out.println("유효한 숫자를 입력해주세요.");
         }
-        System.out.println(postId + "번 게시물은 존재하지 않습니다.\n");
     }
 
     // 게시글 목록 출력
