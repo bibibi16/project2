@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BoardProgram {
-    private static ArrayList<Post> posts = new ArrayList<>();
+    private static ArrayList<Post> posts = new ArrayList<>(); //접근제어자 private 사용
     private static int postIdCounter = 1;
     private static Scanner scanner = new Scanner(System.in);
 
