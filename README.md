@@ -68,7 +68,7 @@ private static void listPosts() {
 }
 </code>
 </pre>
-2. 번 문제
+2. 문제
 <pre>
 <code>
 private static void deletePost() {
