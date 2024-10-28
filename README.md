@@ -52,6 +52,7 @@ NumberFormatException이 발생할 수 있으며, 이 경우 적절한 안내 �
 5. 해결 방안<br/>
     강사님이 알려주신 것 + 공부했던 내용 + 구글 검색<br/>
 6. 해결<br/>
+1. 문제
 <pre>
 <code>
 private static void listPosts() {
@@ -67,9 +68,7 @@ private static void listPosts() {
 }
 </code>
 </pre>
-      해당 코드를 사용하여 게시글이 없을 때 별도의 메시지 출력
-                   
-    두 번째 문제.  <br/>
+2. 번 문제
 <pre>
 <code>
 private static void deletePost() {
