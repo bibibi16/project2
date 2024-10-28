@@ -16,7 +16,7 @@
 ArrayList<Post> posts: 게시글을 저장하는 리스트<br/>
 int postIdCounter: 게시글의 ID를 관리하는 변수, 게시글 추가마다 1씩 증가<br/>
 Scanner scanner: 입력을 받을 때 사용하는 스캐너 객체<br/>
-1.  BoardProgram<br/>
+1. BoardProgram<br/>
 명령어(작성, 조회, 삭제, 수정, 목록, 종료)를 입력받아 기능 실행<br/>
 <br/>
 2. createPost (게시글 작성)<br/>
@@ -52,7 +52,7 @@ NumberFormatException이 발생할 수 있으며, 이 경우 적절한 안내 �
 5. 해결 방안<br/>
     강사님이 알려주신 것 + 공부했던 내용 + 구글 검색<br/>
 6. 해결<br/>
-1. 문제
+1. 첫 번째 문제
 <pre>
 <code>
 private static void listPosts() {
@@ -68,7 +68,7 @@ private static void listPosts() {
 }
 </code>
 </pre>
-2. 문제
+2. 두 번째 문제
 <pre>
 <code>
 private static void deletePost() {
