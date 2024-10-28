@@ -46,11 +46,12 @@ NumberFormatException이 발생할 수 있으며, 이 경우 적절한 안내 �
 ## 트러블 슈팅
 1. 문제<br/>
    첫 번째 문제. 게시글 목록 출력시 문제 <br/>
-   두 번째 문제. 게시물 번호 입력 시 ArrayList가 0부터 인덱스를 사용하기 때문에 혼동 발생 <br/>
+   두 번째 문제. git commit 에러 발생 <br/>
 3. 그에 대한 고민<br/>
    첫 번째, 두번째. 코드가 뭐가 있을까를 고민<br/>
 5. 해결 방안<br/>
     강사님이 알려주신 것 + 공부했던 내용 + 구글 검색<br/>
+    깃 커밋 에러 발생으로 구글 검색 <br/>
 6. 해결<br/>
 1. 첫 번째 문제
 <pre>
@@ -68,33 +69,9 @@ private static void listPosts() {
 }
 </code>
 </pre>
-2. 두 번째 문제
-<pre>
-<code>
-private static void deletePost() {
-    if (posts.isEmpty()) {
-        System.out.println("삭제할 게시글이 없습니다.");
-        return;
-    }
+2. 두 번째 문제<br/>
+연동 삭제 후 재등록..
 
-    try {
-        System.out.print("어떤 게시물을 삭제할까요? ");
-        int postNumber = Integer.parseInt(scanner.nextLine());
-
-        // 사용자가 입력한 게시물 번호가 유효한지 체크
-        if (postNumber < 1 || postNumber > posts.size()) {
-            System.out.println(postNumber + "번 게시글은 존재하지 않습니다.");
-        } else {
-            // 게시물 삭제 (인덱스는 0부터 시작하므로 -1)
-            posts.remove(postNumber - 1);
-            System.out.println(postNumber + "번 게시물이 성공적으로 삭제되었습니다!");
-        }
-    } catch (NumberFormatException e) {
-        System.out.println("유효한 숫자를 입력해주세요."); // 잘못된 입력 처리
-    }
-           }
-</code>
-</pre>
 7. 후기<br/>
     머리가 너무 아팠던 프로젝트 였습니다. 코드를 어떻게 실행해야하는지 어디서부터 작성해야하는지 머리가 멍해져서 강의 재복습 하고<br/>
    구글링하고 찾아보고 대입해보고.. 다른 코드들도 써보고..<br/>
