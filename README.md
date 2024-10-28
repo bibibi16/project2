@@ -45,17 +45,59 @@ NumberFormatException이 발생할 수 있으며, 이 경우 적절한 안내 �
 
 ## 트러블 슈팅
 1. 문제<br/>
-   첫 번째 문제. 어떻게 구성할것인가<br/>
-   두 번째 문제. 깃허브 커밋...<br/>
+   첫 번째 문제. 게시글 목록 출력시 문제 <br/>
+   두 번째 문제. 게시물 번호 입력 시 ArrayList가 0부터 인덱스를 사용하기 때문에 혼동 발생 <br/>
 3. 그에 대한 고민<br/>
-  첫 번째, 두 번째 문제. 어떡하지.... 미치겠네.. 라는 생각만 들었던 것 같다<br/>
+   첫 번째, 두번째. 코드가 뭐가 있을까를 고민<br/>
 5. 해결 방안<br/>
-    첫 번째 문제. 강사님이 알려주신 것 + 공부했던 내용 + 구글 검색<br/>
-    두 번째 문제. 구글을 찾았다..... <br/>
-7. 해결<br/>
-    첫 번째 문제. 사용했던 코드들을 늘여놓고 또 그 코드들을 쓰기에 적당한지 인터넷에 검색했다. 계속 반복<br/>
-    두 번째 문제. 해결이 안된다.... 파괴하고 다시 올리자....<br/>
-8. 후기<br/>
-    머리가 너무 아팠던 프로젝트 였습니다. 구글링하고 찾아보고 대입해보고.. 다른 코드들도 써보고..<br/>
-    그래도 경험 할 수 있어 너무 좋았고 2단계를 다 끝마치지 못해서 아쉬움이 많이 남습니다.<br/>
+    강사님이 알려주신 것 + 공부했던 내용 + 구글 검색<br/>
+6. 해결<br/>
+<pre>
+<code>
+private static void listPosts() {
+    if (posts.isEmpty()) {
+        System.out.println("게시글이 없습니다.\n");
+        return;
+    }
+
+    System.out.println("총 게시글은 " + posts.size() + "개 작성되어 있습니다.");
+    for (Post post : posts) {
+        post.display();
+    }
+}
+</code>
+</pre>
+      해당 코드를 사용하여 게시글이 없을 때 별도의 메시지 출력
+                   
+    두 번째 문제.  <br/>
+<pre>
+<code>
+private static void deletePost() {
+    if (posts.isEmpty()) {
+        System.out.println("삭제할 게시글이 없습니다.");
+        return;
+    }
+
+    try {
+        System.out.print("어떤 게시물을 삭제할까요? ");
+        int postNumber = Integer.parseInt(scanner.nextLine());
+
+        // 사용자가 입력한 게시물 번호가 유효한지 체크
+        if (postNumber < 1 || postNumber > posts.size()) {
+            System.out.println(postNumber + "번 게시글은 존재하지 않습니다.");
+        } else {
+            // 게시물 삭제 (인덱스는 0부터 시작하므로 -1)
+            posts.remove(postNumber - 1);
+            System.out.println(postNumber + "번 게시물이 성공적으로 삭제되었습니다!");
+        }
+    } catch (NumberFormatException e) {
+        System.out.println("유효한 숫자를 입력해주세요."); // 잘못된 입력 처리
+    }
+           }
+</code>
+</pre>
+7. 후기<br/>
+    머리가 너무 아팠던 프로젝트 였습니다. 코드를 어떻게 실행해야하는지 어디서부터 작성해야하는지 머리가 멍해져서 강의 재복습 하고<br/>
+   구글링하고 찾아보고 대입해보고.. 다른 코드들도 써보고..<br/>
+   그래도 경험 할 수 있어 너무 좋았고 2단계를 다 끝마치지 못해서 아쉬움이 많이 남습니다.<br/>
     
